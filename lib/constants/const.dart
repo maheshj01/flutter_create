@@ -1,0 +1,3 @@
+/// APP CONSTANTS GO HERE IN THIS PAGE
+/// E.G
+/// const  BUTTON_HEIGHT = 40;
