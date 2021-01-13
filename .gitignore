@@ -93,3 +93,10 @@ macos/Podfile.lock
 macos/Flutter/GeneratedPluginRegistrant.swift
 macos/Runner.xcodeproj/project.pbxproj
 macos/Runner.xcworkspace/contents.xcworkspacedata
+# Macos Flutter-related
+macos/**/Flutter/ephemeral/
+macos/**/Pods/
+
+# Xcode-related
+macos/**/xcuserdata/
+
