@@ -36,6 +36,7 @@ doc/api/
 
 # Flutter/Dart/Pub related
 **/doc/api/
+.idea/
 .dart_tool/
 .flutter-plugins
 .metadata
