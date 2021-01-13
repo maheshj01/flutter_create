@@ -1,6 +1,7 @@
 # flutter_template
 
-A new Flutter project.
+A Flutter Template for your scalable project setup to directly clone and start working on your application.
+This is created with an intention to save your time doing repetative work with your new project like creating folders and adding unwanted files to gitignores adding localization networking capabilities.
 
 ## Getting Started
 

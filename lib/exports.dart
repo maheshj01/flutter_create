@@ -4,10 +4,7 @@
 
 /** constants */
 
-export 'constants/colors.dart';
-export 'constants/strings.dart';
-export 'constants/styles.dart';
-export 'constants/const.dart';
+export 'constants/constants.dart';
 
 /// EXPORT constants ABOVE THIS LINE
 
