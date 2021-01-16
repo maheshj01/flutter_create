@@ -44,6 +44,7 @@ doc/api/
 .pub-cache/
 .pub/
 /build/
+/lib/models/*.g.dart
 
 # Android related
 **/android/**/gradle-wrapper.jar
@@ -101,3 +102,5 @@ macos/**/Pods/
 # Xcode-related
 macos/**/xcuserdata/
 
+ios/Flutter/Debug.xcconfig
+ios/Flutter/Release.xcconfig
