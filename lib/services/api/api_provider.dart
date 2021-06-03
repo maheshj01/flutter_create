@@ -56,7 +56,7 @@ class ApiProvider {
   }
 
   Future<http.Response> postRequest(String endPoint,
-      {Map<String, dynamic>? body, Map<String, String>? headers}) async {
+      {Map<String, Object>? body, Map<String, String>? headers}) async {
     var responseJson;
     try {
       final response = await http
@@ -73,7 +73,7 @@ class ApiProvider {
   }
 
   Future<http.Response> putRequest(String endPoint,
-      {Map<String, dynamic>? body, Map<String, String>? headers}) async {
+      {Map<String, Object>? body, Map<String, String>? headers}) async {
     var responseJson;
     try {
       final response = await http
@@ -90,7 +90,7 @@ class ApiProvider {
   }
 
   Future<http.Response> deleteRequest(String endPoint,
-      {Map<String, dynamic>? body, Map<String, String>? headers}) async {
+      {Map<String, Object>? body, Map<String, String>? headers}) async {
     var responseJson;
     try {
       final response = await http
@@ -107,7 +107,7 @@ class ApiProvider {
   }
 
   Future<http.Response> patchRequest(String endPoint,
-      {Map<String, dynamic>? body, Map<String, String>? headers}) async {
+      {Map<String, Object>? body, Map<String, String>? headers}) async {
     final response = await http.patch(Uri.parse(BASE_URL + endPoint));
     var responseJson;
     try {
