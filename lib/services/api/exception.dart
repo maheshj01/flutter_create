@@ -21,6 +21,11 @@ class FetchDataException extends CustomException {
   FetchDataException([String? message]) : super(message, "Invalid Input: ");
 }
 
+class ParseDataException extends CustomException {
+  ParseDataException([String? message])
+      : super(message, "Failed to parse the Data");
+}
+
 class ConnectivityException extends CustomException {
   ConnectivityException([String? message])
       : super(message, "Check your internet connectivity");
