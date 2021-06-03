@@ -11,9 +11,9 @@ class ApiProvider {
   static String baseUrl = BASE_URL;
   static Duration timeoutDuration = Duration(seconds: 5);
 
-  FutureOr<void> retryOnTimeOut({http.Response response}) async {
+  FutureOr<void> retryOnTimeOut({required http.Response response}) async {
     try {
-      final res = await response.request.send();
+      final res = await response.request!.send();
       final newResponse = await http.Response.fromStream(res);
       handleResponse(newResponse);
     } catch (_) {}
@@ -39,11 +39,11 @@ class ApiProvider {
   }
 
   Future<http.Response> getRequest(String endPoint,
-      {Map<String, dynamic> headers}) async {
+      {Map<String, String>? headers}) async {
     var responseJson;
     try {
       final response = await http
-          .get(BASE_URL + endPoint, headers: headers)
+          .get(Uri.parse(BASE_URL + endPoint), headers: headers)
           .timeout(timeoutDuration);
       responseJson = handleResponse(response);
     } on SocketException catch (_) {
@@ -56,11 +56,11 @@ class ApiProvider {
   }
 
   Future<http.Response> postRequest(String endPoint,
-      {Map<String, dynamic> body, Map<String, dynamic> headers}) async {
+      {Map<String, dynamic>? body, Map<String, String>? headers}) async {
     var responseJson;
     try {
       final response = await http
-          .post(BASE_URL + endPoint, body: body, headers: headers)
+          .post(Uri.parse(BASE_URL + endPoint), body: body, headers: headers)
           .timeout(timeoutDuration);
       responseJson = handleResponse(response);
     } on SocketException catch (_) {
@@ -73,11 +73,11 @@ class ApiProvider {
   }
 
   Future<http.Response> putRequest(String endPoint,
-      {Map<String, dynamic> body, Map<String, dynamic> headers}) async {
+      {Map<String, dynamic>? body, Map<String, String>? headers}) async {
     var responseJson;
     try {
       final response = await http
-          .put(BASE_URL + endPoint, body: body, headers: headers)
+          .put(Uri.parse(BASE_URL + endPoint), body: body, headers: headers)
           .timeout(timeoutDuration);
       responseJson = handleResponse(response);
     } on SocketException catch (_) {
@@ -90,11 +90,11 @@ class ApiProvider {
   }
 
   Future<http.Response> deleteRequest(String endPoint,
-      {Map<String, dynamic> body, Map<String, dynamic> headers}) async {
+      {Map<String, dynamic>? body, Map<String, String>? headers}) async {
     var responseJson;
     try {
       final response = await http
-          .delete(BASE_URL + endPoint, headers: headers)
+          .delete(Uri.parse(BASE_URL + endPoint), headers: headers)
           .timeout(timeoutDuration);
       responseJson = handleResponse(response);
     } on SocketException catch (_) {
@@ -107,12 +107,12 @@ class ApiProvider {
   }
 
   Future<http.Response> patchRequest(String endPoint,
-      {Map<String, dynamic> body, Map<String, dynamic> headers}) async {
-    final response = await http.patch(BASE_URL + endPoint);
+      {Map<String, dynamic>? body, Map<String, String>? headers}) async {
+    final response = await http.patch(Uri.parse(BASE_URL + endPoint));
     var responseJson;
     try {
       final response = await http
-          .patch(BASE_URL + endPoint, body: body, headers: headers)
+          .patch(Uri.parse(BASE_URL + endPoint), body: body, headers: headers)
           .timeout(timeoutDuration);
       responseJson = handleResponse(response);
     } on SocketException catch (_) {

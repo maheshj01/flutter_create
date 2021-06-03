@@ -10,7 +10,7 @@ class CustomException implements Exception {
 }
 
 class BadRequestException extends CustomException {
-  BadRequestException([String message]) : super(message, "Invalid Request: ");
+  BadRequestException([String? message]) : super(message, "Invalid Request: ");
 }
 
 class UnauthorisedException extends CustomException {
@@ -18,14 +18,14 @@ class UnauthorisedException extends CustomException {
 }
 
 class FetchDataException extends CustomException {
-  FetchDataException([String message]) : super(message, "Invalid Input: ");
+  FetchDataException([String? message]) : super(message, "Invalid Input: ");
 }
 
 class ConnectivityException extends CustomException {
-  ConnectivityException([String message])
+  ConnectivityException([String? message])
       : super(message, "Check your internet connectivity");
 }
 
 class ResourceNotFoundException extends CustomException {
-  ResourceNotFoundException([String message]) : super(message, "Not Found ");
+  ResourceNotFoundException([String? message]) : super(message, "Not Found ");
 }

@@ -1,7 +1,24 @@
 # flutter_template
 
-A Flutter Template for your scalable project setup to directly clone and start working on your application.
+A Flutter Template to clone and start working directly on your application.
+
 This is created with an intention to save your time doing repetative work with your new project like creating folders and adding unwanted files to gitignores adding localization networking capabilities.
+
+### Generating json Serializable class
+
+```
+flutter pub run build_runner build
+
+flutter pub run build_runner watch // watches the file changes
+```
+
+_for more look at the example file at `lib/models/user_model.dart`_
+
+Feel free to fork this and update this template as you like. If this template helps you save even 15 mins on your new project the goal is reached.
+
+## Contributing
+
+You feel this template needs some modification or has issues feel free to create one.This will help improve this template with time.
 
 ## Getting Started
 

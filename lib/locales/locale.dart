@@ -8,7 +8,7 @@ class AppLocalizations {
 
   final Locale locale;
 
-  static AppLocalizations of(BuildContext context) {
+  static AppLocalizations? of(BuildContext context) {
     return Localizations.of<AppLocalizations>(context, AppLocalizations);
   }
 
@@ -21,8 +21,8 @@ class AppLocalizations {
     },
   };
 
-  String get title {
-    return _localizedValues[locale.languageCode]['title'];
+  String? get title {
+    return _localizedValues[locale.languageCode]!['title'];
   }
 }
 
