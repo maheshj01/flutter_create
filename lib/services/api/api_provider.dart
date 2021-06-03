@@ -19,17 +19,14 @@ class ApiProvider {
     } catch (_) {}
   }
 
-  handleResponse(http.Response res) {
+  Object? handleResponse(http.Response res) {
     switch (res.statusCode) {
       case 200:
         return json.decode(res.body);
-        break;
       case 400:
         return BadRequestException();
-        break;
       case 404:
         return ResourceNotFoundException();
-        break;
       case 500:
         break;
       default:
