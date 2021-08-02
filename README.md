@@ -14,7 +14,7 @@ Feel free to fork this repo and modify this template as you like. If this templa
 
     a) navigate to file ```android/app/src/main/AndroidManifest.xml``` 
     
-    b) local for lable named ```android:label```    
+    b) look for label named ```android:label```    
     
     **IOS** 
  
