@@ -7,7 +7,7 @@ part 'user_model.g.dart';
 ///
 /// define a schema for your class and annotate
 /// and then run
-/// ```flutter pub run build_runner build ```
+/// ```flutter pub run build_runner build --delete-conflicting-outputs```
 /// to watch the file changes and generate the outpur
 /// ```flutter pub run build_runner watch ```
 @JsonSerializable(nullable: false)
