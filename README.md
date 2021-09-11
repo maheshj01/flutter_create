@@ -31,15 +31,16 @@ Feel free to fork this repo and modify this template as you like. If this templa
  2. Change the package name, The default package name is (```com.example.flutter_create```)
     Use search and replace feature of your IDE to get this done.
 
- 3. If your app does not need localization delete ```lib/locales``` directory and also delete the corresponding packages
+ 3. If your app does not need localization delete ```lib/localization``` directory and also delete the corresponding packages
   from pubspec.yaml
    -  flutter_localizations:
    -  flutter_cupertino_localizations
  
- 4. Look for ```lib/models/user_model.dart``` an example for generating json serializable is given there
+ 4. This template cannot run unless you generate the models by running this command.
+ Look for ```lib/models/user_model.dart``` an example for generating json serializable is given there
  
   ```
-  flutter pub run build_runner build
+  flutter pub run build_runner build --delete-conflicting-outputs
  
   flutter pub run build_runner watch // watches the file changes
   ```
@@ -50,18 +51,6 @@ Feel free to fork this repo and modify this template as you like. If this templa
 
 ## Contributing
 
-You feel this template needs some modification or has issues feel free to create one.This will help improve this template with time.
+Do you feel this template can be improved or needs some modification or has issues feel free to create one. This will help improve this template with time.
 
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
