@@ -7,10 +7,13 @@ part 'user_model.g.dart';
 ///
 /// define a schema for your class and annotate
 /// and then run
+///
 /// ```flutter pub run build_runner build --delete-conflicting-outputs```
-/// to watch the file changes and generate the outpur
+///
+/// to watch the file changes and generate the outputs run
+///
 /// ```flutter pub run build_runner watch ```
-@JsonSerializable(nullable: false)
+@JsonSerializable()
 class UserModel {
   final String name;
   final String email;
@@ -24,7 +27,7 @@ class UserModel {
   Map<String, dynamic> toJson() => _$UserModelToJson(this);
 }
 
-@JsonSerializable(nullable: false)
+@JsonSerializable()
 class Education {
   final String major;
   final String university;

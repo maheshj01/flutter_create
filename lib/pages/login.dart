@@ -13,8 +13,7 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Login Page'),
-        actions: [],
+        title: const Text('Login Page'),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -25,7 +24,7 @@ class _LoginPageState extends State<LoginPage> {
           ),
           const SizedBox(height: 20),
           const Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: EdgeInsets.all(8.0),
             child: TextField(),
           ),
           const SizedBox(height: 20),
@@ -38,7 +37,7 @@ class _LoginPageState extends State<LoginPage> {
                 }
                 setState(() {});
               },
-              child: Text('ToggleTheme'))
+              child: const Text('ToggleTheme'))
         ],
       ),
     );
