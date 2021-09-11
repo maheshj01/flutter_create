@@ -10,6 +10,7 @@ import 'settings_service.dart';
 /// uses the SettingsService to store and retrieve user settings.
 class SettingsController with ChangeNotifier {
   SettingsController() {
+    _settingsService ??= SettingsService();
     loadSettings();
   }
 
@@ -27,7 +28,7 @@ class SettingsController with ChangeNotifier {
   /// local database or the internet. The controller only knows it can load the
   /// settings from the service.
   Future<void> loadSettings() async {
-    _settingsService ??= SettingsService();
+    await _settingsService!.configTheme();
 
     _themeMode = await _settingsService!.themeMode();
 
