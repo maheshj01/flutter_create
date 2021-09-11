@@ -4,6 +4,8 @@ import 'package:flutter_template/pages/home.dart';
 import 'package:flutter_template/utils/settings_controller.dart';
 import 'constants/constants.dart' show APP_TITLE;
 
+/// Settings are exposed globally to access from anywhere
+
 late SettingsController settingsController;
 void main() {
   settingsController = SettingsController();
