@@ -83,6 +83,7 @@ doc/api/
 **/ios/ServiceDefinitions.json
 **/ios/Runner/GeneratedPluginRegistrant.*
 **/ios/Podfile.lock
+**/ios/build/
 
 # Exceptions to above rules.
 !**/ios/**/default.mode1v3
