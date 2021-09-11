@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_template/main.dart';
+import 'package:flutter_template/utils/settings_controller.dart';
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
+  const MyHomePage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
@@ -23,12 +25,23 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        actions: [
+          Switch(
+              value: settingsController.themeMode == ThemeMode.dark,
+              onChanged: (z) {
+                if (settingsController.themeMode == ThemeMode.dark) {
+                  settingsController.updateThemeMode(ThemeMode.light);
+                } else {
+                  settingsController.updateThemeMode(ThemeMode.dark);
+                }
+              }),
+        ],
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
+            const Text(
               'You have pushed the button this many times:',
             ),
             Text(
