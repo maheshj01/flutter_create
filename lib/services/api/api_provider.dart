@@ -10,7 +10,7 @@ enum HttpMethod { get, post, put, delete, patch }
 
 class ApiProvider {
   static String baseUrl = constant.baseUrl;
-  static Duration timeoutDuration = Duration(seconds: 5);
+  static Duration timeoutDuration = const Duration(seconds: 5);
 
   FutureOr<void> retryOnTimeOut({required http.Response response}) async {
     try {
