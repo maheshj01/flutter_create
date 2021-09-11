@@ -1,21 +1,48 @@
 import 'package:flutter/material.dart';
 
-enum SlideTransitionType { ltr, rtl, ttb, btt, bl, br, tl, tr }
+enum SlideTransitionType {
+  /// Navigation transition from left to right
+  ltr,
+
+  /// Navigation transition from right to left
+  rtl,
+
+  /// Navigation transition from top to bottom
+  ttb,
+
+  /// Navigation transition from bottom to top
+  btt,
+
+  /// Navigation transition from bottom left
+  bl,
+
+  /// Navigation transition from bottom right
+  br,
+
+  /// Navigation transition from top left
+  tl,
+
+  /// Navigation transition from top right
+  tr
+}
 
 Future<void> navigateReplace(BuildContext context, Widget widget,
         {bool isDialog = false,
         bool isRootNavigator = true,
-        SlideTransitionType type = SlideTransitionType.tr}) async =>
+        SlideTransitionType type = SlideTransitionType.rtl}) async =>
     await Navigator.of(context, rootNavigator: isRootNavigator)
-        .pushReplacement(NavigateRoute(widget, type: type));
+        .pushReplacement(PageRoute(widget, type: type));
 
+/// navigator to push a new route in the Navigator Stack
+/// the default transition is right to left which can be changed transition animation
 Future<void> navigate(BuildContext context, Widget widget,
         {bool isDialog = false,
         bool isRootNavigator = true,
-        SlideTransitionType type = SlideTransitionType.tr}) =>
+        SlideTransitionType type = SlideTransitionType.rtl}) =>
     Navigator.of(context, rootNavigator: isRootNavigator)
-        .push(NavigateRoute(widget, type: type));
-// pop all Routes except first
+        .push(PageRoute(widget, type: type));
+
+/// pop all Routes except first
 void popToFirst(BuildContext context, {bool isRootNavigator = true}) =>
     Navigator.of(context, rootNavigator: isRootNavigator)
         .popUntil((route) => route.isFirst);
@@ -52,11 +79,11 @@ Offset getTransitionOffset(SlideTransitionType type) {
   }
 }
 
-class NavigateRoute extends PageRouteBuilder {
+class PageRoute extends PageRouteBuilder {
   final Widget widget;
   final bool? rootNavigator;
   final SlideTransitionType type;
-  NavigateRoute(this.widget, {this.rootNavigator, required this.type})
+  PageRoute(this.widget, {this.rootNavigator, required this.type})
       : super(
           pageBuilder: (context, animation, secondaryAnimation) => widget,
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
