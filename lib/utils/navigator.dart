@@ -32,23 +32,23 @@ navigateAndPopAll(BuildContext context, Widget widget,
 Offset getTransitionOffset(SlideTransitionType type) {
   switch (type) {
     case SlideTransitionType.ltr:
-      return Offset(-1.0, 0.0);
+      return const Offset(-1.0, 0.0);
     case SlideTransitionType.rtl:
-      return Offset(1.0, 0.0);
+      return const Offset(1.0, 0.0);
     case SlideTransitionType.ttb:
-      return Offset(0.0, -1.0);
+      return const Offset(0.0, -1.0);
     case SlideTransitionType.btt:
-      return Offset(0.0, 1.0);
+      return const Offset(0.0, 1.0);
     case SlideTransitionType.bl:
-      return Offset(-1.0, 1.0);
+      return const Offset(-1.0, 1.0);
     case SlideTransitionType.br:
-      return Offset(1.0, 1.0);
+      return const Offset(1.0, 1.0);
     case SlideTransitionType.tl:
-      return Offset(-1.0, -1.0);
+      return const Offset(-1.0, -1.0);
     case SlideTransitionType.tr:
-      return Offset(1.0, 1.0);
+      return const Offset(1.0, 1.0);
     default:
-      return Offset(1.0, 0.0);
+      return const Offset(1.0, 0.0);
   }
 }
 

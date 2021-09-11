@@ -3,12 +3,13 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:flutter_template/services/api/exception.dart';
 import 'package:http/http.dart' as http;
-import 'package:flutter_template/constants/constants.dart' show BASE_URL;
+import 'package:flutter_template/constants/constants.dart' as constant
+    show baseUrl;
 
-enum HttpMethod { GET, POST, PUT, DELETE, PATCH }
+enum HttpMethod { get, post, put, delete, patch }
 
 class ApiProvider {
-  static String baseUrl = BASE_URL;
+  static String baseUrl = constant.baseUrl;
   static Duration timeoutDuration = Duration(seconds: 5);
 
   FutureOr<void> retryOnTimeOut({required http.Response response}) async {
@@ -40,7 +41,7 @@ class ApiProvider {
     var responseJson;
     try {
       final response = await http
-          .get(Uri.parse(BASE_URL + endPoint), headers: headers)
+          .get(Uri.parse(baseUrl + endPoint), headers: headers)
           .timeout(timeoutDuration);
       responseJson = handleResponse(response);
     } on SocketException catch (_) {
@@ -57,7 +58,7 @@ class ApiProvider {
     var responseJson;
     try {
       final response = await http
-          .post(Uri.parse(BASE_URL + endPoint), body: body, headers: headers)
+          .post(Uri.parse(baseUrl + endPoint), body: body, headers: headers)
           .timeout(timeoutDuration);
       responseJson = handleResponse(response);
     } on SocketException catch (_) {
@@ -74,7 +75,7 @@ class ApiProvider {
     var responseJson;
     try {
       final response = await http
-          .put(Uri.parse(BASE_URL + endPoint), body: body, headers: headers)
+          .put(Uri.parse(baseUrl + endPoint), body: body, headers: headers)
           .timeout(timeoutDuration);
       responseJson = handleResponse(response);
     } on SocketException catch (_) {
@@ -91,7 +92,7 @@ class ApiProvider {
     var responseJson;
     try {
       final response = await http
-          .delete(Uri.parse(BASE_URL + endPoint), headers: headers)
+          .delete(Uri.parse(baseUrl + endPoint), headers: headers)
           .timeout(timeoutDuration);
       responseJson = handleResponse(response);
     } on SocketException catch (_) {
@@ -105,11 +106,11 @@ class ApiProvider {
 
   Future<http.Response> patchRequest(String endPoint,
       {Map<String, Object>? body, Map<String, String>? headers}) async {
-    final response = await http.patch(Uri.parse(BASE_URL + endPoint));
+    final response = await http.patch(Uri.parse(baseUrl + endPoint));
     var responseJson;
     try {
       final response = await http
-          .patch(Uri.parse(BASE_URL + endPoint), body: body, headers: headers)
+          .patch(Uri.parse(baseUrl + endPoint), body: body, headers: headers)
           .timeout(timeoutDuration);
       responseJson = handleResponse(response);
     } on SocketException catch (_) {
