@@ -1,7 +1,7 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_template/main.dart';
-import 'package:flutter_template/pages/login.dart';
-import 'package:flutter_template/utils/navigator.dart';
+import 'package:go_router/go_router.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -38,20 +38,22 @@ class _MyHomePageState extends State<MyHomePage> {
                 }),
           ],
         ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              const Text(
-                'You have pushed the button this many times:',
-              ),
-              Text(
-                '$_counter',
-                style: Theme.of(context).textTheme.headline4,
-              ),
-            ],
-          ),
-        ),
+        body: ListView.builder(
+            itemCount: 50,
+            itemBuilder: (BuildContext context, int id) {
+              return Card(
+                child: SizedBox(
+                  height: 100,
+                  child: ListTile(
+                    title: Center(child: Text('item $id')),
+                    onTap: () {
+                      context.go('/product/$id');
+                      // goTo(context, '/detail/$y');
+                    },
+                  ),
+                ),
+              );
+            }),
         floatingActionButton: Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
@@ -64,7 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
             FloatingActionButton(
               heroTag: 'something',
               onPressed: () async {
-                navigate(context, const LoginPage());
+                GoRouter.of(context).go('/login');
               },
               tooltip: 'Navigate',
               child: const Icon(Icons.navigate_next),
