@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_template/main.dart';
+import 'package:go_router/src/go_router.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -20,24 +21,29 @@ class _LoginPageState extends State<LoginPage> {
         children: [
           const Padding(
             padding: EdgeInsets.all(8.0),
-            child: TextField(),
+            child: TextField(
+              decoration: InputDecoration(
+                labelText: 'Email',
+                border: OutlineInputBorder(),
+              ),
+            ),
           ),
           const SizedBox(height: 20),
           const Padding(
             padding: EdgeInsets.all(8.0),
-            child: TextField(),
+            child: TextField(
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'Password',
+              ),
+            ),
           ),
           const SizedBox(height: 20),
           ElevatedButton(
               onPressed: () {
-                if (settingsController.themeMode == ThemeMode.dark) {
-                  settingsController.updateThemeMode(ThemeMode.light);
-                } else {
-                  settingsController.updateThemeMode(ThemeMode.dark);
-                }
-                setState(() {});
+                context.go('/');
               },
-              child: const Text('ToggleTheme'))
+              child: const Text('Login')),
         ],
       ),
     );

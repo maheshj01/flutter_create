@@ -15,10 +15,12 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
+  void _toggleTheme() {
+    if (settingsController.themeMode == ThemeMode.dark) {
+      settingsController.updateThemeMode(ThemeMode.light);
+    } else {
+      settingsController.updateThemeMode(ThemeMode.dark);
+    }
   }
 
   @override
@@ -26,17 +28,6 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
         appBar: AppBar(
           title: Text(widget.title),
-          actions: [
-            Switch(
-                value: settingsController.themeMode == ThemeMode.dark,
-                onChanged: (z) {
-                  if (settingsController.themeMode == ThemeMode.dark) {
-                    settingsController.updateThemeMode(ThemeMode.light);
-                  } else {
-                    settingsController.updateThemeMode(ThemeMode.dark);
-                  }
-                }),
-          ],
         ),
         body: ListView.builder(
             itemCount: 50,
@@ -58,9 +49,9 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             FloatingActionButton(
-              onPressed: _incrementCounter,
+              onPressed: _toggleTheme,
               tooltip: 'Increment',
-              child: const Icon(Icons.add),
+              child: const Icon(Icons.dark_mode),
             ),
             const SizedBox(width: 10),
             FloatingActionButton(
