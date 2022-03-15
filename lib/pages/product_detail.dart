@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/src/go_router.dart';
+import 'package:go_router/go_router.dart';
 
 class ProductDetail extends StatefulWidget {
   final String id;
@@ -19,7 +19,7 @@ class _ProductDetailState extends State<ProductDetail> {
         leading: kIsWeb
             ? null
             : BackButton(
-                onPressed: () => context.goNamed('home'),
+                onPressed: () => context.go('home'),
               ),
         title: Text('Product Item ${widget.id}'),
       ),
