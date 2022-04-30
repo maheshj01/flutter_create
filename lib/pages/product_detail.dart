@@ -19,11 +19,11 @@ class _ProductDetailState extends State<ProductDetail> {
         leading: kIsWeb
             ? null
             : BackButton(
-                onPressed: () => context.go('home'),
+                onPressed: () => context.go('/'),
               ),
         title: Text('Product Item ${widget.id}'),
       ),
-      body: Center(
+      body: const Center(
         child: Card(
           child: Text('Product Detail'),
         ),
