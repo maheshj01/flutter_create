@@ -46,7 +46,7 @@ Feel free to fork this repo and modify this template as you like. If this templa
 
   _for more look at the example file at `lib/models/user_model.dart`_
 
- 5. Go to `pubspec.yaml` and change the title and description
+ 5. Go to `pubspec.yaml` and update the version, title and description, homepage, issue_tracker
 
  6. Help improve this template by suggesting a change that you think is required.
 
