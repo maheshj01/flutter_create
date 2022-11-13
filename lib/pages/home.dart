@@ -1,6 +1,5 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_template/main.dart';
+import 'package:flutter_template/utils/settings_service.dart';
 import 'package:go_router/go_router.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -13,13 +12,11 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
   void _toggleTheme() {
-    if (settingsController.themeMode == ThemeMode.dark) {
-      settingsController.updateThemeMode(ThemeMode.light);
+    if (Settings.getTheme == ThemeMode.dark) {
+      Settings.setTheme(ThemeMode.light);
     } else {
-      settingsController.updateThemeMode(ThemeMode.dark);
+      Settings.setTheme(ThemeMode.dark);
     }
   }
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/src/go_router.dart';
+import 'package:go_router/go_router.dart';
 
 class ErrorPage extends StatelessWidget {
   final String errorMessage;
@@ -11,7 +11,7 @@ class ErrorPage extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: TextButton(
-            child: Text('Go Home'), onPressed: () => context.go('/')),
+            child: const Text('Go Home'), onPressed: () => context.go('/')),
       ),
     );
   }

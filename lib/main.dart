@@ -4,16 +4,17 @@ import 'package:flutter_template/pages/error.dart';
 import 'package:flutter_template/pages/home.dart';
 import 'package:flutter_template/pages/login.dart';
 import 'package:flutter_template/pages/product_detail.dart';
-import 'package:flutter_template/utils/settings_controller.dart';
+import 'package:flutter_template/pages/themes/themes.dart';
+import 'package:flutter_template/utils/settings_service.dart';
 import 'package:go_router/go_router.dart';
-import 'constants/constants.dart' show APP_TITLE;
+import 'constants/constants.dart' show appTitle;
 
 /// Settings are exposed globally to access from anywhere
 
-late SettingsController settingsController;
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   GoRouter.setUrlPathStrategy(UrlPathStrategy.path);
-  settingsController = SettingsController();
+  Settings.init();
   runApp(MyApp());
 }
 
@@ -62,17 +63,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
-        animation: settingsController,
+        animation: Settings(),
         builder: (BuildContext context, Widget? child) {
           return MaterialApp.router(
-            title: APP_TITLE,
+            title: appTitle,
             debugShowCheckedModeBanner: kDebugMode,
             supportedLocales: const [
               Locale('en', ''), // English, no country code
             ],
-            theme: ThemeData(),
-            darkTheme: ThemeData.dark(),
-            themeMode: settingsController.themeMode,
+            theme: AppTheme.lightThemeData,
+            darkTheme: AppTheme.darkThemeData,
+            themeMode: Settings.getTheme,
             // home: const MyHomePage(title: 'Flutter Template'),
             routeInformationParser: _router.routeInformationParser,
             routerDelegate: _router.routerDelegate,

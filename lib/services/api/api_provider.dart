@@ -12,7 +12,8 @@ class ApiProvider {
   static String baseUrl = constant.baseUrl;
   static Duration timeoutDuration = const Duration(seconds: 5);
 
-  FutureOr<void> retryOnTimeOut({required http.Response response}) async {
+  static FutureOr<void> retryOnTimeOut(
+      {required http.Response response}) async {
     try {
       final res = await response.request!.send();
       final newResponse = await http.Response.fromStream(res);
@@ -20,7 +21,7 @@ class ApiProvider {
     } catch (_) {}
   }
 
-  Object? handleResponse(http.Response res) {
+  static Object? handleResponse(http.Response res) {
     switch (res.statusCode) {
       case 200:
         return json.decode(res.body);
@@ -36,7 +37,7 @@ class ApiProvider {
     }
   }
 
-  Future<http.Response> getRequest(String endPoint,
+  static Future<http.Response> getRequest(String endPoint,
       {Map<String, String>? headers}) async {
     var responseJson;
     try {
@@ -53,7 +54,7 @@ class ApiProvider {
     return responseJson;
   }
 
-  Future<http.Response> postRequest(String endPoint,
+  static Future<http.Response> postRequest(String endPoint,
       {Map<String, Object>? body, Map<String, String>? headers}) async {
     var responseJson;
     try {
@@ -70,7 +71,7 @@ class ApiProvider {
     return responseJson;
   }
 
-  Future<http.Response> putRequest(String endPoint,
+  static Future<http.Response> putRequest(String endPoint,
       {Map<String, Object>? body, Map<String, String>? headers}) async {
     var responseJson;
     try {
@@ -87,7 +88,7 @@ class ApiProvider {
     return responseJson;
   }
 
-  Future<http.Response> deleteRequest(String endPoint,
+  static Future<http.Response> deleteRequest(String endPoint,
       {Map<String, Object>? body, Map<String, String>? headers}) async {
     var responseJson;
     try {
@@ -104,7 +105,7 @@ class ApiProvider {
     return responseJson;
   }
 
-  Future<http.Response> patchRequest(String endPoint,
+  static Future<http.Response> patchRequest(String endPoint,
       {Map<String, Object>? body, Map<String, String>? headers}) async {
     final response = await http.patch(Uri.parse(baseUrl + endPoint));
     var responseJson;
