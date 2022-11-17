@@ -8,12 +8,13 @@ import 'package:flutter_template/pages/themes/themes.dart';
 import 'package:flutter_template/utils/settings_service.dart';
 import 'package:go_router/go_router.dart';
 import 'constants/constants.dart' show appTitle;
+import 'package:flutter_web_plugins/url_strategy.dart';
 
 /// Settings are exposed globally to access from anywhere
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  GoRouter.setUrlPathStrategy(UrlPathStrategy.path);
+  usePathUrlStrategy();
   Settings.init();
   runApp(MyApp());
 }
