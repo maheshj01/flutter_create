@@ -9,7 +9,7 @@ extension StringExtension on String {
 
   String initals() {
     /// Returns the first letter of each word in the string.
-    return this.split(' ').map((e) => e.capitalize()!.substring(0, 1)).join();
+    return split(' ').map((e) => e.capitalize()!.substring(0, 1)).join();
   }
 }
 
@@ -175,3 +175,5 @@ extension SizedBoxSpacer on double {
 
   SizedBox hSpacer() => SizedBox(width: this);
 }
+
+const Color darkBlue = Color.fromARGB(255, 18, 32, 47);

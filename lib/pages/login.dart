@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_template/utils/logger.dart';
 import 'package:go_router/go_router.dart';
+
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
@@ -8,8 +10,10 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  Logger logger = Logger("HomePage");
   @override
   Widget build(BuildContext context) {
+    logger.d("build");
     return Scaffold(
       appBar: AppBar(
         title: const Text('Login Page'),

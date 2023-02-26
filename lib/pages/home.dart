@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_template/utils/logger.dart';
 import 'package:flutter_template/utils/settings_service.dart';
 import 'package:go_router/go_router.dart';
 
@@ -13,6 +14,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   void _toggleTheme() {
+    logger.d('toggle theme');
     if (Settings.getTheme == ThemeMode.dark) {
       Settings.setTheme(ThemeMode.light);
     } else {
@@ -20,6 +22,7 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
+  Logger logger = Logger("HomePage");
   @override
   Widget build(BuildContext context) {
     return Scaffold(
