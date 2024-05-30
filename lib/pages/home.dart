@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template/utils/logger.dart';
-import 'package:flutter_template/utils/settings_service.dart';
+import 'package:flutter_create/utils/logger.dart';
+import 'package:flutter_create/utils/settings_service.dart';
 import 'package:go_router/go_router.dart';
 
 class MyHomePage extends StatefulWidget {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_template/utils/settings_service.dart';
+import 'package:flutter_create/utils/settings_service.dart';
 
 class AppTheme {
   static final AppTheme _singleton = AppTheme._internal();
@@ -48,13 +48,13 @@ class AppTheme {
       // Matches manifest.json colors and background color.
       primaryColor: const Color(0xFF030303),
       appBarTheme: AppBarTheme(
-        backgroundColor: colorScheme.background,
+        backgroundColor: colorScheme.surface,
         elevation: 0,
         iconTheme: IconThemeData(color: colorScheme.primary),
       ),
       iconTheme: IconThemeData(color: colorScheme.onPrimary),
-      canvasColor: colorScheme.background,
-      scaffoldBackgroundColor: colorScheme.background,
+      canvasColor: colorScheme.surface,
+      scaffoldBackgroundColor: colorScheme.surface,
       highlightColor: Colors.transparent,
       focusColor: focusColor,
       snackBarTheme: SnackBarThemeData(
@@ -63,7 +63,7 @@ class AppTheme {
           _lightFillColor.withOpacity(0.80),
           _darkFillColor,
         ),
-        contentTextStyle: textTheme.subtitle1!.apply(color: _darkFillColor),
+        contentTextStyle: textTheme.titleMedium!.apply(color: _darkFillColor),
       ),
     );
   }
@@ -79,7 +79,7 @@ class AppTheme {
     //   primaryContainer: Color(0xFF117378),
     //   secondary: Color(0xFFEFF3F3),
     //   secondaryContainer: Color(0xFFFAFBFB),
-    background: const Color.fromARGB(255, 230, 219, 253),
+    surface: const Color.fromARGB(255, 230, 219, 253),
     //   surface: Color(0xFFFAFBFB),
     //   onBackground: Colors.white,
     //   error: _lightFillColor,
@@ -95,9 +95,7 @@ class AppTheme {
     primaryContainer: Color(0xFF1CDEC9),
     secondary: Color(0xFF4D1F7C),
     secondaryContainer: Color(0xFF451B6F),
-    background: Color(0xFF241E30),
-    surface: Color(0xFF1F1929),
-    onBackground: Color(0x0DFFFFFF), // White with 0.05 opacity
+    surface: Color(0xFF1F1929), // White with 0.05 opacity
     error: _darkFillColor,
     onError: _darkFillColor,
     onPrimary: _darkFillColor,
@@ -117,18 +115,18 @@ class AppTheme {
   static const _bold = FontWeight.w700;
 
   static const TextTheme textTheme = TextTheme(
-    headline1: TextStyle(fontWeight: _bold, fontSize: 56.0),
-    headline2: TextStyle(fontWeight: _bold, fontSize: 48.0),
-    headline3: TextStyle(fontWeight: _bold, fontSize: 32.0),
-    headline4: TextStyle(fontWeight: _bold, fontSize: 20.0),
-    headline5: TextStyle(fontWeight: _bold, fontSize: 16.0),
-    headline6: TextStyle(fontWeight: _bold, fontSize: 16.0),
-    caption: TextStyle(fontWeight: _semiBold, fontSize: 16.0),
-    subtitle1: TextStyle(fontWeight: _medium, fontSize: 16.0),
-    subtitle2: TextStyle(fontWeight: _medium, fontSize: 14.0),
-    overline: TextStyle(fontWeight: _medium, fontSize: 12.0),
-    bodyText1: TextStyle(fontWeight: _regular, fontSize: 14.0),
-    bodyText2: TextStyle(fontWeight: _regular, fontSize: 16.0),
-    button: TextStyle(fontWeight: _semiBold, fontSize: 14.0),
+    displayLarge: TextStyle(fontWeight: _bold, fontSize: 56.0),
+    displayMedium: TextStyle(fontWeight: _bold, fontSize: 48.0),
+    displaySmall: TextStyle(fontWeight: _bold, fontSize: 32.0),
+    headlineMedium: TextStyle(fontWeight: _bold, fontSize: 20.0),
+    headlineSmall: TextStyle(fontWeight: _bold, fontSize: 16.0),
+    titleLarge: TextStyle(fontWeight: _bold, fontSize: 16.0),
+    bodySmall: TextStyle(fontWeight: _semiBold, fontSize: 16.0),
+    titleMedium: TextStyle(fontWeight: _medium, fontSize: 16.0),
+    titleSmall: TextStyle(fontWeight: _medium, fontSize: 14.0),
+    labelSmall: TextStyle(fontWeight: _medium, fontSize: 12.0),
+    bodyLarge: TextStyle(fontWeight: _regular, fontSize: 14.0),
+    bodyMedium: TextStyle(fontWeight: _regular, fontSize: 16.0),
+    labelLarge: TextStyle(fontWeight: _semiBold, fontSize: 14.0),
   );
 }

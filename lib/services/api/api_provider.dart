@@ -1,10 +1,11 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
-import 'package:flutter_template/services/api/exception.dart';
-import 'package:http/http.dart' as http;
-import 'package:flutter_template/constants/constants.dart' as constant
+
+import 'package:flutter_create/constants/constants.dart' as constant
     show baseUrl;
+import 'package:flutter_create/services/api/exception.dart';
+import 'package:http/http.dart' as http;
 
 enum HttpMethod { get, post, put, delete, patch }
 
@@ -35,6 +36,7 @@ class ApiProvider {
         throw FetchDataException(
             'Error occured while Communication with Server with StatusCode : ${res.statusCode}');
     }
+    return null;
   }
 
   static Future<http.Response> getRequest(String endPoint,

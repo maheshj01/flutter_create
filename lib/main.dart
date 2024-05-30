@@ -1,14 +1,15 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_template/pages/error.dart';
-import 'package:flutter_template/pages/home.dart';
-import 'package:flutter_template/pages/login.dart';
-import 'package:flutter_template/pages/product_detail.dart';
-import 'package:flutter_template/pages/themes/themes.dart';
-import 'package:flutter_template/utils/settings_service.dart';
-import 'package:go_router/go_router.dart';
-import 'constants/constants.dart' show appTitle;
+import 'package:flutter_create/pages/error.dart';
+import 'package:flutter_create/pages/home.dart';
+import 'package:flutter_create/pages/login.dart';
+import 'package:flutter_create/pages/product_detail.dart';
+import 'package:flutter_create/pages/themes/themes.dart';
+import 'package:flutter_create/utils/settings_service.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
+import 'package:go_router/go_router.dart';
+
+import 'constants/constants.dart' show appTitle;
 
 /// Settings are exposed globally to access from anywhere
 
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
         GoRoute(
             path: '/product/:id',
             pageBuilder: (BuildContext context, GoRouterState state) {
-              final id = state.params['id'];
+              final id = state.pathParameters['id'];
               return MaterialPage<void>(
                 key: state.pageKey,
                 child: ProductDetail(
@@ -77,6 +78,7 @@ class MyApp extends StatelessWidget {
             themeMode: Settings.getTheme,
             // home: const MyHomePage(title: 'Flutter Template'),
             routeInformationParser: _router.routeInformationParser,
+            routeInformationProvider: _router.routeInformationProvider,
             routerDelegate: _router.routerDelegate,
           );
         });
