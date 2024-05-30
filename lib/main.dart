@@ -21,7 +21,7 @@ Future<void> main() async {
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({Key? key}) : super(key: key);
+  MyApp({super.key});
 
   final _router = GoRouter(
       initialLocation: '/',
@@ -51,7 +51,7 @@ class MyApp extends StatelessWidget {
           path: '/login',
           pageBuilder: (context, state) => MaterialPage<void>(
             key: state.pageKey,
-            child: LoginPage(),
+            child: const LoginPage(),
           ),
         ),
       ],

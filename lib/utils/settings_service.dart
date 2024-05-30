@@ -18,7 +18,7 @@ class Settings extends ChangeNotifier {
 
   static late SharedPreferences _prefs;
   static ThemeMode _theme = ThemeMode.system;
-  static String _themeModeKey = 'themeMode';
+  static String themeModeKey = 'themeMode';
 
   static Future<void> init() async {
     _prefs = await SharedPreferences.getInstance();
@@ -30,13 +30,13 @@ class Settings extends ChangeNotifier {
   static void setTheme(ThemeMode theme) {
     _theme = theme;
     bool isDark = theme == ThemeMode.dark;
-    _prefs.setBool(_themeModeKey, isDark);
+    _prefs.setBool(themeModeKey, isDark);
     AppTheme.isDark = isDark;
     _singleton.notify();
   }
 
   static Future<void> loadTheme() async {
-    final bool isDark = _prefs.getBool(_themeModeKey) ?? false;
+    final bool isDark = _prefs.getBool(themeModeKey) ?? false;
     _theme = isDark == true ? ThemeMode.dark : ThemeMode.light;
     AppTheme.isDark = isDark;
     setTheme(_theme);

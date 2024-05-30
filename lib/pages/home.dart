@@ -4,7 +4,7 @@ import 'package:flutter_create/utils/settings_service.dart';
 import 'package:go_router/go_router.dart';
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
+  const MyHomePage({super.key, required this.title});
 
   final String title;
 

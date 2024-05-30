@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 class ProductDetail extends StatefulWidget {
   final String id;
 
-  const ProductDetail({Key? key, required this.id}) : super(key: key);
+  const ProductDetail({super.key, required this.id});
 
   @override
   _ProductDetailState createState() => _ProductDetailState();

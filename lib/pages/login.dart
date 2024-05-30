@@ -3,7 +3,7 @@ import 'package:flutter_create/utils/logger.dart';
 import 'package:go_router/go_router.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  const LoginPage({super.key});
 
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -16,6 +16,12 @@ class _LoginPageState extends State<LoginPage> {
     logger.d("build");
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios),
+          onPressed: () {
+            context.go('/');
+          },
+        ),
         title: const Text('Login Page'),
       ),
       body: Column(

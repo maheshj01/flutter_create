@@ -3,8 +3,7 @@ import 'package:go_router/go_router.dart';
 
 class ErrorPage extends StatelessWidget {
   final String errorMessage;
-  ErrorPage({Key? key, this.errorMessage = "Error 404 not found"})
-      : super(key: key);
+  const ErrorPage({super.key, this.errorMessage = "Error 404 not found"});
 
   @override
   Widget build(BuildContext context) {
