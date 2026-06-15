@@ -1,7 +1,6 @@
 import 'dart:developer' as dev;
 
 class Logger {
-
   Logger._internal() {
     namespace = 'default';
     _instance = Logger._internal();
@@ -35,10 +34,6 @@ class Logger {
   void v(String message) => _log('VERBOSE', 5, message, reset);
 
   void _log(String prefix, int level, String message, String color) {
-    dev.log(
-      '$color$prefix:$message',
-      level: level,
-      name: namespace,
-    );
+    dev.log('$color$prefix:$message', level: level, name: namespace);
   }
 }

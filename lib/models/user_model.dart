@@ -23,8 +23,7 @@ class UserModel {
   final DateTime date;
 
   UserModel(this.name, this.email, this.phone, this.date, this.education);
-  factory UserModel.fromJson(Map<String, dynamic> json) =>
-      _$UserModelFromJson(json);
+  factory UserModel.fromJson(Map<String, dynamic> json) => _$UserModelFromJson(json);
   Map<String, dynamic> toJson() => _$UserModelToJson(this);
 }
 
@@ -35,7 +34,6 @@ class Education {
   final int coolness;
 
   Education(this.major, this.university, this.coolness);
-  factory Education.fromJson(Map<String, dynamic> json) =>
-      _$EducationFromJson(json);
+  factory Education.fromJson(Map<String, dynamic> json) => _$EducationFromJson(json);
   Map<String, dynamic> toJson() => _$EducationToJson(this);
 }

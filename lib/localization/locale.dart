@@ -13,12 +13,8 @@ class AppLocalizations {
   }
 
   static final Map<String, Map<String, String>> _localizedValues = {
-    'en': {
-      'title': 'Hello World',
-    },
-    'es': {
-      'title': 'Hola Mundo',
-    },
+    'en': {'title': 'Hello World'},
+    'es': {'title': 'Hola Mundo'},
   };
 
   String? get title {

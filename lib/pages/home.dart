@@ -26,43 +26,43 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text(widget.title),
-        ),
-        body: ListView.builder(
-            itemCount: 50,
-            itemBuilder: (BuildContext context, int id) {
-              return Card(
-                child: SizedBox(
-                  height: 100,
-                  child: ListTile(
-                    title: Center(child: Text('item $id')),
-                    onTap: () {
-                      context.go('/product/$id');
-                      // goTo(context, '/detail/$y');
-                    },
-                  ),
-                ),
-              );
-            }),
-        floatingActionButton: Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            FloatingActionButton(
-              onPressed: _toggleTheme,
-              tooltip: 'Increment',
-              child: const Icon(Icons.dark_mode),
+      appBar: AppBar(title: Text(widget.title)),
+      body: ListView.builder(
+        itemCount: 50,
+        itemBuilder: (BuildContext context, int id) {
+          return Card(
+            child: SizedBox(
+              height: 100,
+              child: ListTile(
+                title: Center(child: Text('item $id')),
+                onTap: () {
+                  context.go('/product/$id');
+                  // goTo(context, '/detail/$y');
+                },
+              ),
             ),
-            const SizedBox(width: 10),
-            FloatingActionButton(
-              heroTag: 'something',
-              onPressed: () async {
-                GoRouter.of(context).go('/login');
-              },
-              tooltip: 'Navigate',
-              child: const Icon(Icons.navigate_next),
-            ),
-          ],
-        ));
+          );
+        },
+      ),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            onPressed: _toggleTheme,
+            tooltip: 'Increment',
+            child: const Icon(Icons.dark_mode),
+          ),
+          const SizedBox(width: 10),
+          FloatingActionButton(
+            heroTag: 'something',
+            onPressed: () async {
+              GoRouter.of(context).go('/login');
+            },
+            tooltip: 'Navigate',
+            child: const Icon(Icons.navigate_next),
+          ),
+        ],
+      ),
+    );
   }
 }

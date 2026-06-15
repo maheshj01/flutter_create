@@ -14,12 +14,8 @@ class AppTheme {
   static final Color scaffoldBackgroundColor = Colors.grey.shade900;
   static final Color navbarBackground = Colors.indigo.shade100;
 
-  static TextStyle inputTextStyle = const TextStyle(
-    fontSize: 25,
-  );
-  static TextStyle rupeeStyle = const TextStyle(
-    fontSize: 18,
-  );
+  static TextStyle inputTextStyle = const TextStyle(fontSize: 25);
+  static TextStyle rupeeStyle = const TextStyle(fontSize: 18);
 
   bool _isDark = false;
 
@@ -37,8 +33,7 @@ class AppTheme {
   static final Color _lightFocusColor = Colors.black.withOpacity(0.12);
   static final Color _darkFocusColor = Colors.white.withOpacity(0.12);
 
-  static ThemeData lightThemeData =
-      _themeData(lightColorScheme, _lightFocusColor);
+  static ThemeData lightThemeData = _themeData(lightColorScheme, _lightFocusColor);
   static ThemeData darkThemeData = _themeData(darkColorScheme, _darkFocusColor);
 
   static ThemeData _themeData(ColorScheme colorScheme, Color focusColor) {
@@ -59,10 +54,7 @@ class AppTheme {
       focusColor: focusColor,
       snackBarTheme: SnackBarThemeData(
         behavior: SnackBarBehavior.floating,
-        backgroundColor: Color.alphaBlend(
-          _lightFillColor.withOpacity(0.80),
-          _darkFillColor,
-        ),
+        backgroundColor: Color.alphaBlend(_lightFillColor.withOpacity(0.80), _darkFillColor),
         contentTextStyle: textTheme.titleMedium!.apply(color: _darkFillColor),
       ),
     );

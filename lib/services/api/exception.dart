@@ -23,13 +23,11 @@ class FetchDataException extends CustomException {
 }
 
 class ParseDataException extends CustomException {
-  ParseDataException([String? message])
-      : super(message, "Failed to parse the Data");
+  ParseDataException([String? message]) : super(message, "Failed to parse the Data");
 }
 
 class ConnectivityException extends CustomException {
-  ConnectivityException([String? message])
-      : super(message, "Check your internet connectivity");
+  ConnectivityException([String? message]) : super(message, "Check your internet connectivity");
 }
 
 class ResourceNotFoundException extends CustomException {

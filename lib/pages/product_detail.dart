@@ -16,18 +16,10 @@ class _ProductDetailState extends State<ProductDetail> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: kIsWeb
-            ? null
-            : BackButton(
-                onPressed: () => context.go('/'),
-              ),
+        leading: kIsWeb ? null : BackButton(onPressed: () => context.go('/')),
         title: Text('Product Item ${widget.id}'),
       ),
-      body: const Center(
-        child: Card(
-          child: Text('Product Detail'),
-        ),
-      ),
+      body: const Center(child: Card(child: Text('Product Detail'))),
     );
   }
 }

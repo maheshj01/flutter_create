@@ -24,63 +24,58 @@ class MyApp extends StatelessWidget {
   MyApp({super.key});
 
   final _router = GoRouter(
-      initialLocation: '/',
-      routes: [
-        GoRoute(
-          path: '/',
-          name: 'home',
-          pageBuilder: (context, state) => MaterialPage<void>(
-            key: state.pageKey,
-            child: const MyHomePage(
-              title: 'My Home Page',
+    initialLocation: '/',
+    routes: [
+      GoRoute(
+        path: '/',
+        name: 'home',
+        pageBuilder:
+            (context, state) => MaterialPage<void>(
+              key: state.pageKey,
+              child: const MyHomePage(title: 'My Home Page'),
             ),
-          ),
-        ),
-        GoRoute(
-            path: '/product/:id',
-            pageBuilder: (BuildContext context, GoRouterState state) {
-              final id = state.pathParameters['id'];
-              return MaterialPage<void>(
-                key: state.pageKey,
-                child: ProductDetail(
-                  id: id!,
-                ),
-              );
-            }),
-        GoRoute(
-          path: '/login',
-          pageBuilder: (context, state) => MaterialPage<void>(
-            key: state.pageKey,
-            child: const LoginPage(),
-          ),
-        ),
-      ],
-      errorPageBuilder: (BuildContext context, GoRouterState state) {
-        return MaterialPage<void>(
-          key: state.pageKey,
-          child: ErrorPage(errorMessage: state.error.toString()),
-        );
-      });
+      ),
+      GoRoute(
+        path: '/product/:id',
+        pageBuilder: (BuildContext context, GoRouterState state) {
+          final id = state.pathParameters['id'];
+          return MaterialPage<void>(key: state.pageKey, child: ProductDetail(id: id!));
+        },
+      ),
+      GoRoute(
+        path: '/login',
+        pageBuilder:
+            (context, state) => MaterialPage<void>(key: state.pageKey, child: const LoginPage()),
+      ),
+    ],
+    errorPageBuilder: (BuildContext context, GoRouterState state) {
+      return MaterialPage<void>(
+        key: state.pageKey,
+        child: ErrorPage(errorMessage: state.error.toString()),
+      );
+    },
+  );
 
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
-        animation: Settings(),
-        builder: (BuildContext context, Widget? child) {
-          return MaterialApp.router(
-            title: Strings.appTitle,
-            debugShowCheckedModeBanner: kDebugMode,
-            supportedLocales: const [
-              Locale('en', ''), // English, no country code
-            ],
-            theme: AppTheme.lightThemeData,
-            darkTheme: AppTheme.darkThemeData,
-            themeMode: Settings.getTheme,
-            // home: const MyHomePage(title: 'Flutter Template'),
-            routeInformationParser: _router.routeInformationParser,
-            routeInformationProvider: _router.routeInformationProvider,
-            routerDelegate: _router.routerDelegate,
-          );
-        });
+      animation: Settings(),
+      builder: (BuildContext context, Widget? child) {
+        return MaterialApp.router(
+          title: Strings.appTitle,
+          debugShowCheckedModeBanner: kDebugMode,
+          supportedLocales: const [
+            Locale('en', ''), // English, no country code
+          ],
+          theme: AppTheme.lightThemeData,
+          darkTheme: AppTheme.darkThemeData,
+          themeMode: Settings.getTheme,
+          // home: const MyHomePage(title: 'Flutter Template'),
+          routeInformationParser: _router.routeInformationParser,
+          routeInformationProvider: _router.routeInformationProvider,
+          routerDelegate: _router.routerDelegate,
+        );
+      },
+    );
   }
 }
