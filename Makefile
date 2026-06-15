@@ -124,6 +124,9 @@ generate:
     # run make format after generating the adapters
 	make format
 
+make watch-generate:
+	dart run build_runner watch --delete-conflicting-outputs
+
 clean: clean_ios clean_android format
 
 clean_ios:
