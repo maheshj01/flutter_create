@@ -9,7 +9,7 @@ import 'package:flutter_create/utils/settings_service.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
 import 'package:go_router/go_router.dart';
 
-import 'constants/constants.dart' show appTitle;
+import 'constants/strings.dart';
 
 /// Settings are exposed globally to access from anywhere
 
@@ -68,7 +68,7 @@ class MyApp extends StatelessWidget {
         animation: Settings(),
         builder: (BuildContext context, Widget? child) {
           return MaterialApp.router(
-            title: appTitle,
+            title: Strings.appTitle,
             debugShowCheckedModeBanner: kDebugMode,
             supportedLocales: const [
               Locale('en', ''), // English, no country code

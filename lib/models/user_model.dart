@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+
 // import 'education_model.dart';
 part 'user_model.g.dart';
 // part 'education_model.g.dart';
